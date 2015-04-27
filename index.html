@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html ng-app="travelAdmin">
+    <head>
+        <meta charset="utf-8"> 
+        <title>Travel Admin</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/icomoon.css">
+        <link rel="stylesheet" href="css/generic.css" >
+        <link rel="stylesheet" href="css/style.css" >
+        <link rel="stylesheet" href="css/spiner.min.css" >
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" ng-controller="Menu">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon icon-car" style="font-size:30px; color:#3498db;"></span>
+                    </button>
+                    <a class="navbar-brand hidden-xs hidden-sm" href="#home"><span class="icon icon-car" style="font-size:18px; color:#3498db;"></span></a>
+                </div>
+                <!-- Cuando no está loggeado -->
+                <div class="navbar-collapse collapse" ng-if="!isLogged()">
+                    <ul class="nav navbar-nav">
+                        <li> 
+                            <a href="#/main" 
+                               class="smoothScroll cursor-pointer">Principal</a>
+                        </li>
+                        <li> 
+                            <a class="smoothScroll cursor-pointer" 
+                               ng-click="login()">Iniciar Sessión</a>
+                        </li>
+                        <li> 
+                            <a href="#/register" 
+                               class="smoothScroll cursor-pointer">Registrarse</a>
+                        </li>
+
+                    </ul>
+                </div><!--/.nav-collapse -->
+
+
+                <!-- Cuando está loggeado -->
+                <div class="navbar-collapse collapse" ng-if="isLogged()">
+                    <ul class="nav navbar-nav">
+                        <!-- Usuario -->
+                        <li> 
+                            <a href="#/main" 
+                               class="smoothScroll cursor-pointer">Inicio</a>
+                        </li>
+                        <li>
+                            <a class="smoothScroll cursor-pointer"
+                               data-toggle="dropdown">
+                                <!--<span class="glyphicon glyphicon-user"></span>-->  
+                                Perfil
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" ng-href="#/myprofile">
+                                        Mi Perfil
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a role="menuitem" class="cursor-pointer" 
+                                       tabindex="-1" ng-click="logOut()">
+                                        Cerrar Sessión
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Paquetes -->
+                        <li>
+                            <a class="smoothScroll cursor-pointer"
+                               data-toggle="dropdown">
+                                Paquetes
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" ng-href="#/newpackage">
+                                        Nuevo Paquete
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a role="menuitem" class="cursor-pointer" 
+                                       tabindex="-1" ng-click="logOut()">
+                                        Ver Paquetes
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="smoothScroll cursor-pointer"
+                               data-toggle="dropdown">
+                                Configuración
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="smoothScroll cursor-pointer"  data-toggle="dropdown">
+                                Mensajes <span class="badge">{{ getNotReaded() }}</span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation" ng-repeat="item in notification.messages" ng-class="getNotificationClass(item.readed)" ng-click="item.readed = true; showMessage()">
+                                    <a role="menuitem" tabindex="-1" class="cursor-pointer">
+                                        <b>{{ item.from }}</b>
+                                        <p>
+                                            {{ item.message }}
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div ng-view class="main-div">
+
+        </div>
+
+        <div class="container footer">
+            <label>Erwin Bader - Diseño y Desarrollo Web</label> <br/>
+            <label class="mail">erwin.bader06@gmail.com</label> <br/>
+            <label>2015</label> 
+        </div>
+
+        <!-- Librerias -->
+        <script src="js/libs/jquery/jquery-2.1.0.js"></script>
+        <script src="js/libs/jquery/blockUi.js"></script>
+
+        <script src="js/libs/bootstrap/bootstrap.min.js"></script>
+ 
+        <script src="js/libs/angular/angular.min.js"></script>
+        <script src="js/libs/angular/angular-route.js"></script>
+        <script src="js/libs/angular/cookies.js"></script>
+        <script src="js/libs/angular/UI/modal.min.js"></script>
+
+        <script src="js/libs/others/Utils.js"></script>
+        <script src="js/libs/others/DialogBox.js"></script>
+
+        <script src="js/others/messages.js"></script>
+        <script src="js/misc/utils.js"></script>
+        <script src="js/others/ErrorManager.js"></script>
+
+        <!-- Angular UI -->
+        <script src="js/libs/angular/UI/modal.min.js"></script>
+        <script src="js/app.js"></script>
+
+
+        <!-- Controlladores -->
+        <script src="js/controllers/Menu.js"></script>
+
+        <script src="js/controllers/Package/NewBus.js"></script>
+        <script src="js/controllers/Package/NewPackage.js"></script>
+        <script src="js/controllers/Package/NewHotel.js"></script>
+        <script src="js/controllers/Package/AddBus.js"></script>
+        <script src="js/controllers/Package/AddHotel.js"></script>
+
+        <script src="js/controllers/user/Login.js"></script>
+        <script src="js/controllers/user/Profile.js"></script>
+        <script src="js/controllers/user/Register.js"></script>
+
+
+    </body>
+</html>

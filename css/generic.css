@@ -1,0 +1,51 @@
+.bg-white {
+    background-color: white;
+}
+
+.bg-darkcyan {
+    background-color: darkcyan;
+}
+
+.bg-darkred {
+    background-color: darkred;
+}
+
+.color-darkcyan{
+    color: darkcyan;
+}
+
+.color-green {
+    color: green;
+}
+
+.color-darkred{
+    color: darkred;
+}
+
+.width-80por {
+    width: 80%;
+}
+
+.full-height{
+    height: 100%;
+}
+
+.font-30px{
+    font-size: 30px;
+}
+
+.font-20px{
+    font-size: 20px;
+}
+
+.label-deleted{
+    text-decoration: line-through;
+}
+
+.display-initial{
+    display: initial;
+}
+
+.bold {
+    font-weight: bold;
+}

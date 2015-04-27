@@ -1,0 +1,147 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url(../fonts/opensans.woff2) format('woff2');
+    /*unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;*/
+}
+
+@font-face {
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Dosis Regular'), local('Dosis-Regular'), url(../fonts/dosis.woff) format('woff');
+}
+
+html,body {
+    /*height: inherit;*/
+    /*background-color: whitesmoke;*/
+    font-family: "Dosis" !important;
+    /*background-image: url(../resource/photography.png);*/
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: "Open Sans" !important;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.main-div {
+    margin-top: 51px;
+    height: 100%;
+    margin-bottom: 350px;
+}
+
+.bg-color-ws{
+    background-color: white;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.div-list-data  > label {
+    font-weight: normal;
+}
+
+.div-list-data > .title {
+    font-weight: 700;
+}
+
+.width-50por{
+    width: 50%;
+}
+
+.width-max-100por{
+    max-width: 100%;
+}
+
+.height-max-50por{
+    max-height: 100%;
+}
+
+
+.bg-success{
+    background-color: #5cb85c;
+}
+
+.color-b{
+    color: black;
+}
+
+.color-b:hover{
+    color: grey;
+}
+
+.label-title {
+    font-size: 30px;
+    font-weight: normal;
+    color: darkblue
+}
+
+.button-trash{
+    padding-right: 4px;
+    padding-top: 4px;
+}
+
+.img-package {
+    max-width: 250px;
+    max-height:  250px;
+}
+
+.navbar-inverse{
+    background-color: #0B0B3B;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
+
+.box-tarjet {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 1px 1px 3px 0px;
+    background-color: whitesmoke;
+}
+
+.box-tarjet > label.title {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 21px;
+    color: #0B0B3B;
+}
+
+.btn-minus {
+    padding: 4px 8px;
+}
+
+.label-title-grey {
+  font-size: 40px;
+  font-weight: normal;
+  color: grey;
+}
+
+.padding-tb-20px{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footer {
+      bottom: 0;
+  height: 100px;
+  background-color: black;
+  color: white;
+  padding-top: 11px;
+  font-size: 16px;
+  padding-left: 20px;
+}
+
+.footer > label {
+    font-weight: normal;
+}
+
+.footer > label.mail {
+    font-style: oblique;
+}
