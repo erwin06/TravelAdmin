@@ -1,0 +1,92 @@
+<div class="modal-content">
+    <div class="modal-body">
+        <h1>Nuevo Hotel</h1>
+        <form>
+            <div class="form-group">
+                <label>Nombre del hotel</label>
+                <input type="text" class="form-control" 
+                       placeholder="Hilton" ng-model="data.hotelName" 
+                       required/>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea class="form-control" ng-model="data.hotelDetail"
+                          placeholder="Descripción del hotel, descripción general de las habitaciones, etc."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Habitaciones</label>
+                <br/>
+                <label ng-if="data.rooms.length == 0"><small>Debe agregar habitaciones a este hotel más abajo</small></label>
+                <div ng-if="data.rooms.length > 0">
+                    <div ng-repeat="room in data.rooms">
+                        <label class="color-darkcyan font-30px">{{ room.name}}</label> <label class="color-darkred font-30px">$ {{ room.price}}</label> <br/>
+                        <div class="text-right">
+                            <span class="glyphicon glyphicon-chevron-down" ng-click="room.show = true" ng-if="room.show != true"></span> 
+                            <span class="glyphicon glyphicon-chevron-up" ng-click="room.show = false" ng-if="room.show == true"></span> 
+                        </div>
+                        <div ng-if="room.show == true">
+                            <label>{{ "Habitación " + getRoomType(room.type)}}</label><br/>
+                            <label>Camas cargadas</label> <br/>
+                            <div  ng-repeat="bed in room.beds">
+                                <label class="color-darkcyan"># {{ bed.name + ": " }}</label>
+                                <label>{{ bed.count}}</label>
+                            </div>
+                            <label>Descripción</label> <br/>
+                            <label class="color-darkcyan">{{ room.description || "-"}}</label>
+                            <div class="text-right">
+                                Cantidad de habitaciones iguales
+                                <span class="glyphicon glyphicon-chevron-down" ng-click="room.count = room.count - 1" ng-if="room.count > 1"> </span> 
+                                {{ room.count}}
+                                <span class="glyphicon glyphicon-chevron-up" ng-click="room.count = room.count + 1"> </span> 
+                                <a class="color-darkred cursor-pointer" ng-click="delRoom(room.id)">Borrar habitación</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-footer">
+                <!-- ---------------  HABITACIONES ------------------------- -->
+                <div class="form-group">
+                    <label>Tipo de habitación</label>
+                    <select class="form-control" ng-model="data.roomType">
+                        <option value="3">Común</option>
+                        <option value="1">Suit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Precio</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">AR$</span>
+                        <input type="number" step="0.01" min="1" class="form-control" placeholder="100.00" ng-model="data.price" requiered>
+                    </div>
+                </div>    
+                <div class="form-group">
+                    <label>Camas</label>
+                    <table class="table">
+                        <thead>
+                        <th># Tipo</th>
+                        <th># Cantidad</th>
+                        </thead>
+                        <tr ng-repeat="bed in screen.beds">
+                            <td>{{ bed.name}}</td> 
+                            <td>
+                                <span class="glyphicon glyphicon-chevron-down" ng-click="bed.count = bed.count - 1" ng-if="bed.count > 0"> </span> 
+                                {{ bed.count}}
+                                <span class="glyphicon glyphicon-chevron-up" ng-click="bed.count = bed.count + 1"> </span> </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <textarea class="form-control" ng-model="data.roomDetail"
+                              placeholder="Descripción particular de esta habitación"></textarea>
+                </div>
+                <div class="form-group text-right">
+                    <button class="btn btn-primary" ng-click="addRom()" type="button">Agregar habitación</button>
+                </div>
+            </div>
+            <br/>
+            <button type="button" ng-click="saveHotel()" class="btn btn-default">Guardar Hotel</button>
+        </form>
+    </div>
+</div>

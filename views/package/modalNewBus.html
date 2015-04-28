@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="col-lg-6">
+        <h2>Colectivo <button class="btn btn-primary" ng-click="newBus()">Agregar</button>
+        </h2>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Filtrar por: Nombre, detalles" ng-model="screen.filterBus">
+        </div>
+        <!-- Colectivos -->
+        <div class="form-group" ng-if="screen.status == 0">
+            <table class="table table-hover cursor-pointer">
+                <thead>
+                <th>Info</th>
+                <th>Nombre</th>
+                <th>Detalles</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in store.sugBus | filter:screen.filterBus"  class="animated fadeIn">
+                        <td>
+                            <span class="glyphicon glyphicon-zoom-in cursor-pointer" ng-click="seeInfo(item.idbus)"></span>
+                        </td>
+                        <td ng-click="selectBus(item)">
+                            {{ item.name}}
+                        </td>
+                        <td ng-click="selectBus(item)">
+                            {{ item.detail}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Loading -->
+        <div class="form-group" ng-if="screen.status == 1">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+        <!-- Información -->
+        <div class="form-group" ng-if="screen.status == 2">
+            <label class="label-title">Distribución del colectivo</label>
+            <div> 
+                <table>
+                    <tr ng-repeat="rowObject in store.busInfo">
+
+                        <td ng-repeat="rowItem in rowObject.row">
+                            <span ng-if="rowItem.type == 1"
+                                  class="badge bg-success cursor-pointer"> {{rowItem.chairNumber}}
+                            </span>
+                            <span ng-if="rowItem.type == 2">
+                                &nbsp;&nbsp;&nbsp;
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="form-group" ng-if="screen.status == 0">
+            <button class="btn btn-primary">Cargar</button>
+        </div>
+        <div class="form-group" ng-if="screen.status == 2">
+            <button class="btn btn-default" ng-click="screen.status = 0"><span class="glyphicon glyphicon-arrow-left"> </span> Volver</button>
+        </div>
+
+    </div>
+</div>

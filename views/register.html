@@ -1,0 +1,44 @@
+<div class="container">
+    <br/>
+    <h1>Bienvenido!</h1>
+    <h3>Registro</h3>
+    <form ng-submit="register()">
+        <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" class="form-control" placeholder="Homero Simpson" ng-model="data.name" required>
+        </div>
+        <div class="form-group">
+            <label>E-Mail</label>
+            <input type="email" class="form-control" placeholder="homero@simpson.com" ng-model="data.email" required>
+        </div>
+        <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" pattern=".{5,20}" class="form-control"
+                   maxlength="20" required=""
+                   placeholder="alagrandelepusecuca"
+                   ng-model="data.password"
+                   title="La contraseña debe tener entre 6 y 20 caracteres">
+            <p class="help-block">La contraseña debe tener entre 6 y 20 caracteres</p>
+        </div>
+        <div class="form-group">
+            <label>Confirmar contraseña</label>
+            <input type="password" pattern=".{5,20}" class="form-control"
+                   maxlength="20" required=""
+                   ng-model="data.password2"
+                   placeholder="alagrandelepusecuca"
+                   title="La contraseña debe tener entre 6 y 20 caracteres">
+            <p class="help-block">Ingrese su contraseña nuevamente</p>
+        </div>
+        <div class="form-group">
+            <label>Tipo de usuario</label>
+            <select class="form-control" ng-model="data.type" required>
+                <option value="">Seleccione</option>
+                <option value="p">Proveedor</option>
+                <option value="t">Empresa de Turismo</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary buttonAnimated">Registrar</button>
+        </div>
+    </form>
+</div>

@@ -110,17 +110,24 @@ angular.module('Profile', ['ngCookies', 'ui.bootstrap.modal']).controller('Profi
                 userid: $cookies.userid
             }
         };
-
-        $http.post(__URL__, json).success(function (response) {
-            console.log(response);
-            if (response.success) {
+        var response = {
+            optional: {
+                main: {
+                    name: "Homero Simpson",
+                    email: "homero@simpson.com"
+                }
+            }
+        }
+        // $http.post(__URL__, json).success(function (response) {
+        //     console.log(response);
+        //     if (response.success) {
                 $scope.userData = response.optional;
                 $scope.originalData = copy(response.optional);
                 alert.hide();
-            } else {
-                errorManager.proccessError(response, $location, $cookies);
-            }
-        }).error(server_error);
+        //     } else {
+        //         errorManager.proccessError(response, $location, $cookies);
+        //     }
+        // }).error(server_error);
 
     }
 

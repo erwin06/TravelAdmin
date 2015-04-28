@@ -1,0 +1,78 @@
+<div class="container bg-color-ws full-height">
+    <br/>
+    <div class="container text-right">
+        <button class="btn btn-primary">Nueva tarjeta</button>
+    </div>
+
+    <div class="container box-tarjet animated bounceInRight">
+        <span class="glyphicon glyphicon-pencil"> </span>
+        <span class="glyphicon glyphicon-trash"> </span>
+        <label class="title">Datos personales</label> <br/>
+
+        <label ng-hide="toEdit.name == true" class="label-title"> 
+            <small>
+                <span class="glyphicon glyphicon-pencil" ng-show="edit == true" ng-click="toEdit.name = true"></span>
+            </small> 
+            {{ userData.main.name}}
+        </label>
+
+        <input type="text" class="form-control" ng-model="userData.main.name" ng-show="toEdit.name == true">
+        <small ng-show="toEdit.name == true">
+            <span class="glyphicon glyphicon-check"  ng-click="editName(true)"></span>
+            <span class="glyphicon glyphicon-remove"  ng-click="editName(false)"></span>
+        </small> 
+        <div>
+            <label>{{userData.main.email}}</label>
+        </div>
+        <div>
+            <label>{{ getUserType(userData.main.type) }}</label>
+        </div>
+
+        <div class="text-right">
+            <small> 
+                <button class="btn btn-primary btn-minus" type="button">Tarjeta pública</button> 
+                <button class="btn btn-default btn-minus" type="button">Tarjeta privada</button>
+            </small>
+        </div>
+
+    </div>
+
+    <div class="container box-tarjet animated bounceInLeft">
+        <span class="glyphicon glyphicon-pencil"> </span>
+        <span class="glyphicon glyphicon-trash"> </span>
+        <label class="title">Foto para mostrar</label> <br/>
+        <br/>
+        <a href="#">
+            <img src="resource/userUnknow.jpg" alt="...">
+        </a>
+        <br/>
+        <div class="text-right">
+            <small><button class="btn btn-primary btn-minus" type="button">Tarjeta pública</button> <button class="btn btn-default btn-minus" type="button">Tarjeta privada</button></small>
+        </div>
+    </div>
+
+    <div class="container box-tarjet  animated bounceInRight">
+        <span class="glyphicon glyphicon-pencil"> </span>
+        <span class="glyphicon glyphicon-trash"> </span>
+        <label class="title">¿Donde puedes encontrarme?</label> <br/>
+
+        <p>Me puedes encontrar en "Avenida Siempre Viva 123"</p>
+        <p>Este es mi número personal: <b>123456789</b></p>
+        <p>Y el número de mi oficina: 11588777. Ahí puedes llamarme de 9 a 21hs</p>
+
+        <div class="text-right">
+            <small><button class="btn btn-primary btn-minus" type="button">Tarjeta pública</button> <button class="btn btn-default btn-minus" type="button">Tarjeta privada</button></small>
+        </div>
+
+    </div>
+
+    <div class="container box-tarjet  animated bounceInUp">
+        <span class="glyphicon glyphicon-pencil"> </span>
+        <span class="glyphicon glyphicon-trash"> </span>
+        <label class="title">¿Cual es mi objetivo?</label> <br/>
+        <p>Mi objetivo es que tengas el mejor paquete para que puedas ofrecerles a tus clientes! La mejor oferta del mercado. </p>
+        <div class="text-right">
+            <small><button class="btn btn-primary btn-minus" type="button">Tarjeta pública</button> <button class="btn btn-default btn-minus" type="button">Tarjeta privada</button></small>
+        </div>
+    </div>
+</div>

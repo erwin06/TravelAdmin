@@ -31,7 +31,8 @@ angular.module('travelAdmin', [
     'newBus',
     'newHotel',
     'addBus',
-    'addHotel'
+    'addHotel',
+    'SearchPackage'
 ]).config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
@@ -43,10 +44,10 @@ angular.module('travelAdmin', [
                     templateUrl: 'views/package/newPackage.html',
                     controller: 'NewPackage'
                 })
-//                .when('/mainUser', {
-//                    templateUrl: 'views/mainUser.html',
-//                    controller: 'mainUser'
-//                })
+                .when('/searchPackage', {
+                    templateUrl: 'views/package/searchPackage.html',
+                    controller: 'SearchPackage'
+                })
                 .when('/main', {
                     templateUrl: 'views/main.html',
                     controller: 'Menu'

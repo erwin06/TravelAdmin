@@ -1,0 +1,92 @@
+<div class="bg-color-ws full-height">
+    <div class="col-lg-6">
+        <div class="box-tarjet">
+            <h1>Nuevo Paquete 
+                <button type="button" class="btn btn-primary">GUARDAR PAQUETE</button>
+                <button type="button" class="btn btn-warning">LIMPIAR PAQUETE</button>
+            </h1> 
+            <br/>
+            <form class="form" role="form">
+                <div class="form-group">
+                    <label>Nombre del paquete</label>
+                    <input type="text" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <textarea class="form-control" placeholder="Explicación de lo que el paquete contiene"></textarea>
+                </div>
+        </div>
+        <div class="box-tarjet">
+            <div class="form-group">
+                <label>Carga de imagenes</label>
+                <input class="form-control" type="file" disabled>
+            </div>
+            <div class="form-group">
+                <img src="resource/imgs/img (1).jpg" class="img-package">
+                <img src="resource/imgs/img (2).jpg" class="img-package">
+                <img src="resource/imgs/img (3).jpg" class="img-package">
+                <img src="resource/imgs/img (4).jpg" class="img-package">
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="box-tarjet">
+            <h1>Colectivos</h1>
+            <div class="form-group">
+                <button class="btn btn-default"  ng-click="newBus()" type="button">Nuevo colectivo</button>
+                <button class="btn btn-default"  ng-click="addBus()" type="button">Agregar colectivo</button>
+            </div>
+            <div class="form-group">
+                <table class="table">
+                    <thead>
+                    <th class="col-lg-2"># Quitar</th>
+                    <th># Colectivo</th>
+                    <th class="col-lg-2"># Cantidad</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in store.selectedBuses">
+                            <td><span class="glyphicon glyphicon-trash"  ng-click="delBus(item.idbus)"></span></td>
+                            <td> {{item.name}}</td>
+                            <td> 
+                                <span class="glyphicon glyphicon-minus" ng-if="item.count > 0" ng-click="item.count = item.count - 1"></span> 
+                                {{ item.count}} 
+                                <span class="glyphicon glyphicon-plus" ng-click="item.count = item.count + 1"></span>
+                            </td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="box-tarjet">
+            <div class="form-group">
+                <h1>Hoteles</h1> 
+                <div class="form-group">
+                    <button class="btn btn-default"  ng-click="newHotel()" type="button">Nuevo hotel</button>
+                    <button class="btn btn-default"  ng-click="addHotel()" type="button">Agregar hotel</button>
+                </div>
+                <div class="form-group">
+                    <table class="table">
+                        <thead>
+                        <th class="col-lg-2"># Quitar</th>
+                        <th># Hotel</th>
+                        <th class="col-lg-2"># Cantidad</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in store.selectedHotels">
+                                <td><span class="glyphicon glyphicon-trash" ng-click="delHotel(item.idhotel)"></span></td>
+                                <td>{{ item.name}}</td>
+                                <td>
+                                    <span class="glyphicon glyphicon-minus" ng-if="item.count > 0" ng-click="item.count = item.count - 1"></span> 
+                                    {{ item.count}} 
+                                    <span class="glyphicon glyphicon-plus" ng-click="item.count = item.count + 1"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

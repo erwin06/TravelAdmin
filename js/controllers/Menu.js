@@ -116,12 +116,20 @@ angular.module('Menu', ['ngCookies', 'ui.bootstrap.modal']).controller('Menu', f
     function onLogin() {
         $scope.userData.logged = true;
         $scope.userData.name = $cookies.name;
-    }
+    };
 
     $scope.isLogged = function () {
         if (existsVar($cookies.sessionid))
             return true;
         return false;
+    };
+
+    $scope.isProvider = function(){
+        return $cookies.type == PROVIDER || $cookies.type == BOTH;
+    };
+
+    $scope.isCompany = function(){
+        return $cookies.type == COMPANY || $cookies.type == BOTH;
     };
 
 });

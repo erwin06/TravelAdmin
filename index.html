@@ -51,7 +51,6 @@
                         <li>
                             <a class="smoothScroll cursor-pointer"
                                data-toggle="dropdown">
-                                <!--<span class="glyphicon glyphicon-user"></span>-->  
                                 Perfil
                             </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -74,7 +73,7 @@
                                data-toggle="dropdown">
                                 Paquetes
                             </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" ng-if="isProvider()">
                                 <li role="presentation">
                                     <a role="menuitem" tabindex="-1" ng-href="#/newpackage">
                                         Nuevo Paquete
@@ -84,6 +83,13 @@
                                     <a role="menuitem" class="cursor-pointer" 
                                        tabindex="-1" ng-click="logOut()">
                                         Ver Paquetes
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" ng-if="isCompany()">
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" ng-href="#/searchPackage">
+                                        Buscar paquetes
                                     </a>
                                 </li>
                             </ul>
@@ -112,7 +118,6 @@
                                 </li>
                             </ul>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -120,12 +125,6 @@
 
         <div ng-view class="main-div">
 
-        </div>
-
-        <div class="container footer">
-            <label>Erwin Bader - Diseño y Desarrollo Web</label> <br/>
-            <label class="mail">erwin.bader06@gmail.com</label> <br/>
-            <label>2015</label> 
         </div>
 
         <!-- Librerias -->
@@ -159,6 +158,8 @@
         <script src="js/controllers/Package/NewHotel.js"></script>
         <script src="js/controllers/Package/AddBus.js"></script>
         <script src="js/controllers/Package/AddHotel.js"></script>
+        <script src="js/controllers/Package/SearchPackage.js"></script>
+
 
         <script src="js/controllers/user/Login.js"></script>
         <script src="js/controllers/user/Profile.js"></script>

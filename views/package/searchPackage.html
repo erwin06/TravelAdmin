@@ -1,0 +1,76 @@
+<div class="container">
+    <label class="label-title-grey col-sm-12 padding-tb-20px">¿QUÉ ESTÁS BUSCANDO?</label>
+</div>
+<div class="container">
+  <input type="text" class="form-control" placeholder="Solo escríbelo!">
+</div>
+<div class="container" ng-if="screenStatus == 'suggestions'">
+    <label class="label-title-grey col-sm-12 padding-tb-20px">
+    Algunas sugerencias...</label>
+
+    <div class="container">
+	    <div class="col-sm-3 animated fadeIn">
+	        <label class="font-20px">Donec quis arcu at diam lacinia facilisis.</label>
+	        <img src="resource/imgs/img (6).jpg" class="width-max-100por padding-tb-20px">
+	        <label class="color-green font-20px">Desde $400!</label>
+	        <p>Integer tempor orci eu semper laoreet. Integer ornare lectus a eros vestibulum malesuada. Sed sodales justo id turpis pharetra, ut euismod risus euismod. Donec rutrum pretium posuere. </p>
+	    </div>
+	    <div class="col-sm-3 animated fadeIn">
+	        <label class="font-20px">Etiam molestie odio sit amet mattis tempus.</label>
+	        <img src="resource/imgs/img (7).jpg" class="width-max-100por padding-tb-20px">
+	        <label class="color-green font-20px">Por tan solo $800</label>
+	        <p>Pellentesque congue placerat ultrices. Vivamus maximus, elit vitae eleifend facilisis, lorem leo vulputate enim, quis suscipit leo neque eu leo. Sed pellentesque risus id quam efficitur vulputate. </p>
+	    </div>
+	     <div class="col-sm-3 animated fadeIn">
+	        <label class="font-20px">Aenean interdum dolor non sem sollicitudin iaculis.</label>
+	        <img src="resource/imgs/img (8).jpg" class="width-max-100por padding-tb-20px">
+	        <label class="color-green font-20px">$900 y tenes todo pago!</label>
+	        <p>Vestibulum lacus turpis, scelerisque nec imperdiet vitae, finibus quis metus. Cras mattis turpis tincidunt, mollis quam at, pellentesque lectus. Suspendisse fermentum interdum enim, id rhoncus dolor vulputate a.</p>
+	    </div>
+	    <div class="col-sm-3 animated fadeIn">
+	        <label class="font-20px">Aliquam lacinia nisl at augue blandit rhoncus.</label>
+	        <img src="resource/imgs/img (9).png" class="width-max-100por padding-tb-20px">
+	        <label class="color-green font-20px">Tus minis vacaciones por $200</label>
+	        <p>Maecenas gravida, libero eu venenatis commodo, lorem ex sodales enim, sed tincidunt ligula erat non lectus. Nullam consectetur faucibus purus id congue. Integer euismod elit vitae enim molestie</p>
+	    </div>
+	</div>
+</div>
+<div class="container" ng-if="screenStatus == 'searching'">
+	<label class="label-title-grey col-sm-12 padding-tb-20px">
+	Estamos buscando...</label>
+</div>
+<div class="container" ng-if="screenStatus == 'noResults'">
+	<label class="label-title-grey col-sm-12 padding-tb-20px">
+	Ufa!... No encontramos nada :'(</label>
+</div>
+<div class="container" ng-if="screenStatus = 'hasResults'">
+	<label class="label-title-grey padding-tb-20px">
+	Resultados encontrados</label>
+	<br/>
+	 <div class="container">
+	    <div class="box-tarjet min-height-200px">
+	        <label class="font-20px">Donec quis arcu at diam lacinia facilisis.</label>
+	        <img src="resource/imgs/img (6).jpg" class="tumblr float-right">
+	        <p>Integer tempor orci eu semper laoreet. Integer ornare lectus a eros vestibulum malesuada. Sed sodales justo id turpis pharetra, ut euismod risus euismod. Donec rutrum pretium posuere. </p>
+	        <label class="color-green font-20px">Desde $400!</label>
+	    </div>
+	    <div class="box-tarjet min-height-200px">
+	        <label class="font-20px">Etiam molestie odio sit amet mattis tempus.</label>
+	        <img src="resource/imgs/img (7).jpg" class="tumblr float-right">
+	        <p>Pellentesque congue placerat ultrices. Vivamus maximus, elit vitae eleifend facilisis, lorem leo vulputate enim, quis suscipit leo neque eu leo. Sed pellentesque risus id quam efficitur vulputate. </p>
+	        <label class="color-green font-20px">Por tan solo $800</label>
+	    </div>
+	     <div class="box-tarjet min-height-200px">
+	        <label class="font-20px">Aenean interdum dolor non sem sollicitudin iaculis.</label>
+	        <img src="resource/imgs/img (8).jpg" class="tumblr float-right">
+	        <p>Vestibulum lacus turpis, scelerisque nec imperdiet vitae, finibus quis metus. Cras mattis turpis tincidunt, mollis quam at, pellentesque lectus. Suspendisse fermentum interdum enim, id rhoncus dolor vulputate a.</p>
+	        <label class="color-green font-20px">$900 y tenes todo pago!</label>
+	    </div>
+	    <div class="box-tarjet min-height-200px">
+	        <label class="font-20px">Aliquam lacinia nisl at augue blandit rhoncus.</label>
+	        <img src="resource/imgs/img (9).png" class="tumblr float-right">
+	        <p>Maecenas gravida, libero eu venenatis commodo, lorem ex sodales enim, sed tincidunt ligula erat non lectus. Nullam consectetur faucibus purus id congue. Integer euismod elit vitae enim molestie</p>
+	        <label class="color-green font-20px">Tus minis vacaciones por $200</label>
+	    </div>
+	</div>
+</div>

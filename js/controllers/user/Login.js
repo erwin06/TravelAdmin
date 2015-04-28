@@ -2,7 +2,6 @@ angular.module('Login', ['ngCookies', 'ui.bootstrap.modal']).controller('Login',
 
     $scope.data = {};
 
-
     /**
      * Funcion para loggearse
      */
@@ -18,20 +17,30 @@ angular.module('Login', ['ngCookies', 'ui.bootstrap.modal']).controller('Login',
 
         notification.info("Ingresando...");
 
-        $http.post(__URL__, json)
-                .success(function (response) {
-                    console.log(response);
-                    if (response.success) {
-                        $cookies.sessionid = response.optional.sessionid;
-                        $cookies.userid = response.optional.iduser;
-                        $cookies.type = response.optional.type;
-                        alert.hide();
-                        $modalInstance.close();
-                        $location.path('/myprofile');
-                    } else {
-                        errorManager.proccessError(response, $location, $cookies);
-                    }
-                }).error(server_error);
+        $cookies.sessionid = "1234";
+        $cookies.userid = "1";
+        $cookies.type = COMPANY;
+        if($scope.data.userMail == "a@a"){
+            $cookies.type = PROVIDER;
+        }
+        alert.hide();
+        $modalInstance.close();
+        $location.path('/myprofile');
+
+        // $http.post(__URL__, json)
+        //         .success(function (response) {
+        //             console.log(response);
+        //             if (response.success) {
+        //                 $cookies.sessionid = response.optional.sessionid;
+        //                 $cookies.userid = response.optional.iduser;
+        //                 $cookies.type = response.optional.type;
+        //                 alert.hide();
+        //                 $modalInstance.close();
+        //                 $location.path('/myprofile');
+        //             } else {
+        //                 errorManager.proccessError(response, $location, $cookies);
+        //             }
+        //         }).error(server_error);
     };
 });
 

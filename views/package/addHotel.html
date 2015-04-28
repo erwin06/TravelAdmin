@@ -1,0 +1,19 @@
+<div class="modal-content">
+    <div class="modal-body">
+        <label>AGREGAR UN HOTEL</label><br/><br/>
+        <input type="text" ng-model="filter" class="form-control" placeholder="Filtrar...">
+        <br/>
+        <table class="table table-hover">
+            <thead>
+            <th># Hotel</th>
+            <th># Descripción</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in store.hotels | filter:filter" class="cursor-pointer" ng-click="close(item)">
+                    <td class="col-lg-2">{{item.name}}</td>
+                    <td>{{item.detail}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

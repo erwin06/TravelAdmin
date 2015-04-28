@@ -1,0 +1,102 @@
+<div class="modal-content">
+    <div class="modal-body">
+        <h1>Nuevo Colectivo</h1>
+        <form ng-submit="saveBus()">
+            <div class="form-group">
+                <label>Empresa</label>
+                <input type="text" class="form-control" 
+                       placeholder="Chevallier" ng-model="data.name" 
+                       required/>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <input type="text" class="form-control" 
+                       placeholder="Coche 123" ng-model="data.detail" />
+            </div>
+            <div class="form-group">
+                <label>Tipo de servicio</label>
+                <select class="form-control" required ng-model="data.serviceType">
+                    <option value="">Seleccione uno...</option>
+                    <option value="1">Suit</option>
+                    <option value="2">Ejectivo</option>
+                    <option value="3">Común</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Precio de cada asiento</label>
+                <div class="input-group">
+                    <span class="input-group-addon">AR$</span>
+                    <input type="number" step="0.01" min="1" class="form-control" placeholder="100.00" ng-model="data.price" requiered>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Asientos</label>
+                <div>
+                    <a class="cursor-pointer" ng-click="addChair()">  
+                        <span class="icon icon-plus-circle"></span> Agregar asiento 
+                    </a> 
+                    <a class="cursor-pointer" ng-click="addSpace()"> 
+                        <span class="icon icon-plus-circle"></span> Agregar espacio 
+                    </a>
+                    <a class="cursor-pointer" ng-click="addRow()"> 
+                        <span class="icon icon-plus-circle"></span> Agregar fila 
+                    </a>
+                    <a class="cursor-pointer" ng-click="delChairs()"> 
+                        <span class="icon icon-plus-circle"></span> Borrar fila 
+                    </a>
+                    <a class="cursor-pointer" ng-click="screen.showHelp = true" ng-if="screen.showHelp == false"> 
+                        <span class="icon icon-question"></span> Mostrar Ayuda 
+                    </a>
+                    <a class="cursor-pointer" ng-click="screen.showHelp = false" ng-if="screen.showHelp == true"> 
+                        <span class="icon icon-question"></span> Ocultar Ayuda 
+                    </a>
+                </div>
+                <br/>
+                <p ng-if="screen.showHelp == true">
+                    Esta parte es para agregar la distribución de los asientos en el colectivo.
+                    Presione "Agregar asiento" para agregar un asiento. "Agregar espacio", 
+                    para agregar, por ejemplo, el pasillo del colectivo. 
+                    Cuando termine, presione "Agregar fila". Y agrege tantos como desee.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th ng-repeat="ch in data.newTypeChairs">
+                                <span ng-if="ch.type == 1"
+                                      class="badge bg-success cursor-pointer"> -
+                                </span>
+                                <span ng-if="ch.type == 2">
+                                    &nbsp;&nbsp;&nbsp;
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <table>
+                    <tr ng-repeat="rowObject in data.allChairs">
+                        <td class="button-trash">
+                            <span class="glyphicon glyphicon-trash" ng-click="delRow(rowObject.id)"> </span> 
+                        </td>
+                        <td ng-repeat="rowItem in rowObject.row">
+                            <span ng-if="rowItem.type == 1"
+                                  class="badge bg-success cursor-pointer"> {{rowItem.chairNumber}}
+                            </span>
+                            <span ng-if="rowItem.type == 2">
+                                &nbsp;&nbsp;&nbsp;
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br/>
+
+            <button type="submit" class="btn btn-default">Ingresar</button>
+        </form>
+    </div>
+</div>
