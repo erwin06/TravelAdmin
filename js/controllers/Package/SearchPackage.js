@@ -1,5 +1,5 @@
-angular.module('SearchPackage', ['ui.bootstrap.modal']).controller('SearchPackage', function ($scope) {
+inApp.controller('SearchPackage', function ($scope) {
 
-	$scope.test = "asdas";
+	$scope.screenStatus = "suggestions";
 
-});
+});//searching noResults hasResults

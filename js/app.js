@@ -19,26 +19,27 @@ var SPACE = 2;
 var MATRIMONIAL = 1;
 var SIMPLE = 2;
 
-angular.module('travelAdmin', [
+var inApp = angular.module('travelAdmin', [
     'ngRoute',
     'ngCookies',
-    'Menu',
-    'Register',
-    'Login',
     'ui.bootstrap',
-    'Profile',
-    'NewPackage',
-    'newBus',
-    'newHotel',
-    'addBus',
-    'addHotel',
-    'SearchPackage'
+    'ui.bootstrap.modal'
+    // 'Menu',
+    // 'Register',
+    // 'Login',
+    // 'ui.bootstrap',
+    // 'Profile',
+    // 'NewPackage',
+    // 'newBus',
+    // 'newHotel',
+    // 'addBus',
+    // 'addHotel',
+    // 'SearchPackage'
 ]).config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
                 .when('/myprofile', {
-                    templateUrl: 'views/myProfile.html',
-                    controller: 'Profile'
+                    templateUrl: 'views/myProfile.html'
                 })
                 .when('/newpackage', {
                     templateUrl: 'views/package/newPackage.html',
@@ -53,8 +54,7 @@ angular.module('travelAdmin', [
                     controller: 'Menu'
                 })
                 .when('/register', {
-                    templateUrl: 'views/register.html',
-                    controller: 'Register'
+                    templateUrl: 'views/register.html'
                 })
                 .otherwise({
                     redirectTo: '/main'

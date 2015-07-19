@@ -1,4 +1,4 @@
-angular.module('Menu', ['ngCookies', 'ui.bootstrap.modal']).controller('Menu', function ($scope, $modal, $cookies, $http, $cookieStore, $location) {
+inApp.controller('Menu', function ($scope, $modal, $cookies, $http, $cookieStore, $location) {
 
     $scope.userData = {
         logged: false
@@ -56,7 +56,7 @@ angular.module('Menu', ['ngCookies', 'ui.bootstrap.modal']).controller('Menu', f
     $scope.login = function () {
         var modalLogin = $modal.open({
             templateUrl: 'views/modals/login.html',
-            controller: 'Login'
+            controller: "Login"
         });
     };
 

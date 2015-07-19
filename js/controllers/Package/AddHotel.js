@@ -1,4 +1,4 @@
-angular.module('addHotel', ['ui.bootstrap.modal']).controller('addHotel', function ($scope, $modalInstance) {
+inApp.controller('AddHotel', function ($scope, $modalInstance) {
 
 
     $scope.store = {};

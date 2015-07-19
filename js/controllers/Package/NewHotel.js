@@ -1,4 +1,4 @@
-angular.module('newHotel', ['ui.bootstrap.modal']).controller('newHotel', function ($scope, $http, $cookies, $modalInstance, $location) {
+inApp.controller('NewHotel', function ($scope, $http, $cookies, $modalInstance, $location) {
 
     var _autoIncr = 0;
     $scope.screen = {

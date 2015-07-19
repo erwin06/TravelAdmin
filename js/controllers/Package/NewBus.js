@@ -1,4 +1,4 @@
-angular.module('newBus', ['ui.bootstrap.modal']).controller('newBus', function ($scope, $http, $cookies, $modalInstance, $location) {
+inApp.controller('NewBus', function ($scope, $http, $cookies, $modalInstance, $location) {
 
     var indexChair = 1;
     var _id = 0;

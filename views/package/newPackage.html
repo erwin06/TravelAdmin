@@ -1,10 +1,7 @@
-<div class="bg-color-ws container">
+<div class="container" ng-controller="NewPackage">
+    <div class="div-spacer-small"></div>
     <div class="box-tarjet">
-        <h1>Nuevo Paquete
-        <button type="button" class="btn btn-primary">GUARDAR PAQUETE</button>
-        <button type="button" class="btn btn-warning">LIMPIAR PAQUETE</button>
-        </h1>
-        <br/>
+        <h3>Nuevo Paquete</h3>
         <form class="form" role="form">
             <div class="form-group">
                 <label>Nombre del paquete</label>
@@ -20,16 +17,11 @@
                 <label>Carga de imagenes</label>
                 <input class="form-control" type="file" disabled>
             </div>
-            <div class="form-group">
-                <img src="resource/imgs/img (1).jpg" class="img-package">
-                <img src="resource/imgs/img (2).jpg" class="img-package">
-                <img src="resource/imgs/img (3).jpg" class="img-package">
-                <img src="resource/imgs/img (4).jpg" class="img-package">
-            </div>
+            <div class="form-group"></div>
         </form>
     </div>
     <div class="box-tarjet">
-        <h1>Colectivos</h1>
+        <h3>Colectivos</h3>
         <div class="form-group">
             <button class="btn btn-default"  ng-click="newBus()" type="button">Nuevo colectivo</button>
             <button class="btn btn-default"  ng-click="addBus()" type="button">Agregar colectivo</button>
@@ -44,7 +36,7 @@
                 <tbody>
                     <tr ng-repeat="item in store.selectedBuses">
                         <td><span class="glyphicon glyphicon-trash"  ng-click="delBus(item.idbus)"></span></td>
-                        <td> {{item.name}}</td>
+                        <td>{{item.name}}</td>
                         <td>
                             <span class="glyphicon glyphicon-minus" ng-if="item.count > 0" ng-click="item.count = item.count - 1"></span>
                             {{ item.count}}
@@ -57,7 +49,7 @@
     </div>
     <div class="box-tarjet">
         <div class="form-group">
-            <h1>Hoteles</h1>
+            <h3>Hoteles</h3>
             <div class="form-group">
                 <button class="btn btn-default"  ng-click="newHotel()" type="button">Nuevo hotel</button>
                 <button class="btn btn-default"  ng-click="addHotel()" type="button">Agregar hotel</button>
@@ -84,4 +76,10 @@
             </div>
         </div>
     </div>
+    <div class="div-spacer-small"></div>
+    <div class="text-right">
+        <button class="btn btn-primary">Guardar</button>
+    </div>
+    <div class="div-spacer-small"></div>
 </div>
+

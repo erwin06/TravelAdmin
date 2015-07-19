@@ -49,3 +49,33 @@
 .bold {
     font-weight: bold;
 }
+
+.btn-primary {
+    background-color: #3498DB;
+    border-color: #3498DB;
+    color: white;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active,.btn-primary:active:focus {
+    background-color: #2980B9;
+    border-color: #2980B9;
+}
+
+.btn-default {
+    background-color: white;
+    border-color: #3498DB;
+    color: #3498DB;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active,.btn-default:active:focus {
+    background-color: #2980B9;
+    border-color: #2980B9;
+}
+
+.div-spacer-small{
+    height: 30px;
+}
+
+.container.small {
+    max-width: 900px;
+}

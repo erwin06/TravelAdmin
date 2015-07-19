@@ -1,4 +1,4 @@
-var ModuleRegister = angular.module('Register', []).controller('Register', function ($scope, $cookies, $http, $location) {
+inApp.controller('Register', function ($scope, $cookies, $http, $location) {
 
     $scope.conf = {
         type: 1
@@ -38,24 +38,4 @@ var ModuleRegister = angular.module('Register', []).controller('Register', funct
         });
 
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
-

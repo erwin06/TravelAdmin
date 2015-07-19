@@ -1,4 +1,4 @@
-angular.module('Profile', ['ngCookies', 'ui.bootstrap.modal']).controller('Profile', function ($scope, $cookies, $location, $http) {
+inApp.controller('Profile', function ($scope, $cookies, $location, $http) {
 
     /**
      * Checkeo que este loggeado

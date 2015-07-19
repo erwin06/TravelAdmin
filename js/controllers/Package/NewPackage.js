@@ -1,4 +1,4 @@
-angular.module('NewPackage', ['ngCookies', 'ui.bootstrap.modal']).controller('NewPackage', function ($scope, $cookies, $modal, $location, $http) {
+inApp.controller('NewPackage', function ($scope, $cookies, $modal, $location, $http) {
 
     /**
      * Checkeo que este loggeado
@@ -19,21 +19,21 @@ angular.module('NewPackage', ['ngCookies', 'ui.bootstrap.modal']).controller('Ne
     $scope.newBus = function () {
         $modal.open({
             templateUrl: 'views/modals/newBus.html',
-            controller: 'newBus'
+            controller: 'NewBus'
         });
     };
 
     $scope.newHotel = function () {
         $modal.open({
             templateUrl: 'views/modals/newHotel.html',
-            controller: 'newHotel'
+            controller: 'NewHotel'
         });
     };
 
     $scope.addBus = function () {
         var modalInstance = $modal.open({
             templateUrl: 'views/package/addBus.html',
-            controller: 'addBus'
+            controller: 'AddBus'
         });
         modalInstance.result.then(function (item) {
             item.count = 1;
@@ -45,7 +45,7 @@ angular.module('NewPackage', ['ngCookies', 'ui.bootstrap.modal']).controller('Ne
     $scope.addHotel = function () {
         var modalInstance = $modal.open({
             templateUrl: 'views/package/addHotel.html',
-            controller: 'addHotel'
+            controller: 'AddHotel'
         });
         modalInstance.result.then(function (item) {
             item.count = 1;

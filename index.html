@@ -4,126 +4,15 @@
         <meta charset="utf-8"> 
         <title>Travel Admin</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/icomoon.css">
+        <link rel="stylesheet" href="css/theme.css">
         <link rel="stylesheet" href="css/generic.css" >
         <link rel="stylesheet" href="css/style.css" >
-        <link rel="stylesheet" href="css/spiner.min.css" >
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top" ng-controller="Menu">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon icon-car" style="font-size:30px; color:#3498db;"></span>
-                    </button>
-                    <a class="navbar-brand hidden-xs hidden-sm" href="#home"><span class="icon icon-car" style="font-size:18px; color:#3498db;"></span></a>
-                </div>
-                <!-- Cuando no está loggeado -->
-                <div class="navbar-collapse collapse" ng-if="!isLogged()">
-                    <ul class="nav navbar-nav">
-                        <li> 
-                            <a href="#/main" 
-                               class="smoothScroll cursor-pointer">Principal</a>
-                        </li>
-                        <li> 
-                            <a class="smoothScroll cursor-pointer" 
-                               ng-click="login()">Iniciar Sessión</a>
-                        </li>
-                        <li> 
-                            <a href="#/register" 
-                               class="smoothScroll cursor-pointer">Registrarse</a>
-                        </li>
 
-                    </ul>
-                </div><!--/.nav-collapse -->
+        <div ng-include src="'views/nav/nav-bar.html'"></div>
 
-
-                <!-- Cuando está loggeado -->
-                <div class="navbar-collapse collapse" ng-if="isLogged()">
-                    <ul class="nav navbar-nav">
-                        <!-- Usuario -->
-                        <li> 
-                            <a href="#/main" 
-                               class="smoothScroll cursor-pointer">Inicio</a>
-                        </li>
-                        <li>
-                            <a class="smoothScroll cursor-pointer"
-                               data-toggle="dropdown">
-                                Perfil
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation">
-                                    <a role="menuitem" tabindex="-1" ng-href="#/myprofile">
-                                        Mi Perfil
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a role="menuitem" class="cursor-pointer" 
-                                       tabindex="-1" ng-click="logOut()">
-                                        Cerrar Sessión
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- Paquetes -->
-                        <li>
-                            <a class="smoothScroll cursor-pointer"
-                               data-toggle="dropdown">
-                                Paquetes
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" ng-if="isProvider()">
-                                <li role="presentation">
-                                    <a role="menuitem" tabindex="-1" ng-href="#/newpackage">
-                                        Nuevo Paquete
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a role="menuitem" class="cursor-pointer" 
-                                       tabindex="-1" ng-click="logOut()">
-                                        Ver Paquetes
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" ng-if="isCompany()">
-                                <li role="presentation">
-                                    <a role="menuitem" tabindex="-1" ng-href="#/searchPackage">
-                                        Buscar paquetes
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="smoothScroll cursor-pointer"
-                               data-toggle="dropdown">
-                                Configuración
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="smoothScroll cursor-pointer"  data-toggle="dropdown">
-                                Mensajes <span class="badge">{{ getNotReaded() }}</span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation" ng-repeat="item in notification.messages" ng-class="getNotificationClass(item.readed)" ng-click="item.readed = true; showMessage()">
-                                    <a role="menuitem" tabindex="-1" class="cursor-pointer">
-                                        <b>{{ item.from }}</b>
-                                        <p>
-                                            {{ item.message }}
-                                        </p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div ng-view class="main-div">
+        <div ng-view>
 
         </div>
 
@@ -151,7 +40,7 @@
 
 
         <!-- Controlladores -->
-        <script src="js/controllers/Menu.js"></script>
+        <script src="js/controllers/nav/Menu.js"></script>
 
         <script src="js/controllers/Package/NewBus.js"></script>
         <script src="js/controllers/Package/NewPackage.js"></script>

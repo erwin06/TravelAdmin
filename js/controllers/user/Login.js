@@ -1,4 +1,4 @@
-angular.module('Login', ['ngCookies', 'ui.bootstrap.modal']).controller('Login', function ($scope, $http, $modalInstance, $cookies, $location) {
+inApp.controller('Login', function ($scope, $http, $modalInstance, $cookies, $location) {
 
     $scope.data = {};
 
@@ -6,7 +6,7 @@ angular.module('Login', ['ngCookies', 'ui.bootstrap.modal']).controller('Login',
      * Funcion para loggearse
      */
     $scope.login = function () {
-
+        alert.info("a")
         var json = {
             operation: 'login',
             data: {
@@ -42,5 +42,29 @@ angular.module('Login', ['ngCookies', 'ui.bootstrap.modal']).controller('Login',
         //             }
         //         }).error(server_error);
     };
+
+    $scope.provider = function() {
+
+
+        $cookies.sessionid = "1234";
+        $cookies.userid = "1";
+        $cookies.type = PROVIDER;
+        alert.hide();
+        $modalInstance.close();
+        $location.path('/myprofile');
+
+    }
+
+    $scope.company = function() {
+
+
+        $cookies.sessionid = "1234";
+        $cookies.userid = "1";
+        $cookies.type = COMPANY;
+        alert.hide();
+        $modalInstance.close();
+        $location.path('/myprofile');
+
+    }
 });
 
